@@ -1,0 +1,312 @@
+$small: 300px;
+$medium: 900px;
+@mixin center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin hrstyle {
+  border: none;
+  width: 95%;
+  border-bottom: solid 2px rgba(209, 207, 207, 0.658);
+}
+.cart {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  width: 100vw;
+  overflow-y: scroll;
+  @media screen and (max-width: $medium) and (min-width: $small) {
+    height: max-content;
+    min-height: 90vh;
+    align-items: center;
+    flex-direction: column;
+  }
+  .cart-wrapper {
+    padding-left: 15px;
+    margin-top: 20px;
+    min-height: 90%;
+    height: max-content;
+    margin-left: 5%;
+    width: 60%;
+    background-color: white;
+    border-radius: 10px;
+
+    @media screen and (max-width: $medium) and (min-width: $small) {
+      height: max-content + 20px;
+      min-height: 60vh;
+      width: 80%;
+      margin-left: 0;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 1.2rem;
+      padding: 10px 0px;
+    }
+    hr {
+      @include hrstyle;
+    }
+    .empty-cart {
+      @include center;
+      height: 400px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .m-button {
+        @include center();
+        border: solid 1px blue;
+        background-color: blue;
+        font-size: 10px;
+        height: 20px;
+        width: 80px;
+        transition: all 0.2s ease;
+        box-shadow: 0px 0px 5px 1px rgb(68, 67, 67, 0.4);
+        padding: 8px 12px;
+        border-radius: 3px;
+        cursor: pointer;
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0px 0px 12px 1px rgb(67, 67, 67, 0.4);
+        }
+      }
+    }
+    .cart-item {
+      margin-top: 10px;
+      height: 120px;
+      width: 100%;
+      background-color: transparent;
+
+      hr {
+        @include hrstyle;
+        margin-left: 3%;
+        width: 90%;
+        margin-top: 20px;
+        border-color: rgba(236, 236, 236, 0.299);
+      }
+
+      .cart-item-i {
+        height: 98%;
+        width: 100%;
+        display: flex;
+        margin-bottom: 10px;
+        min-width: 400px;
+
+        .cart-item-tumb {
+          height: 100%;
+          width: 100px;
+          margin-right: 10px;
+          object-fit: contain;
+          img {
+            border-radius: 10px;
+            height: 120px;
+            width: 100px;
+          }
+        }
+        .item-desc-wrapper {
+          display: flex;
+          width: 98%;
+
+          @media screen and (max-width: $medium) and (min-width: $small) {
+            flex-direction: column;
+          }
+          .cart-item-desc {
+            box-sizing: border-box;
+            padding-top: 7px;
+            height: 100%;
+            width: 80%;
+            div {
+              &:nth-child(1) {
+                height: 20px;
+                font-weight: 600;
+              }
+              &:nth-child(2) {
+                margin-top: 10px;
+                height: 20px;
+                font-size: 10px;
+                color: gray;
+                width: 100px;
+                span {
+                  margin-left: 2px;
+                  &:nth-child(3) {
+                    color: rgb(4, 61, 51);
+                  }
+                }
+              }
+              &:nth-child(3) {
+                @include center;
+                flex-direction: row;
+                box-sizing: border-box;
+                padding: 2px;
+                display: flex;
+                border: solid 1.8px rgba(209, 207, 207, 0.658);
+                border-radius: 12px;
+                height: 25px;
+                width: 60px;
+
+                span {
+                  @include center;
+                  width: 40%;
+                  font-size: 12px;
+                }
+                button {
+                  width: 30%;
+                  cursor: pointer;
+                  height: 100%;
+                  border: transparent;
+                  background-color: transparent;
+                  &:hover {
+                    border-radius: 50%;
+                    background-color: rgb(225, 224, 224);
+                  }
+                }
+              }
+            }
+          }
+          .cart-item-options {
+            @include center;
+            padding-top: 10px;
+            justify-content: flex-start;
+            font-weight: 600;
+            height: 100%;
+            width: 8%;
+            @media screen and (max-width: $medium) and (min-width: $small) {
+              font-size: 10px;
+              flex-direction: row;
+              align-items: center;
+              height: 10%;
+              width: 100%;
+            }
+            div {
+              &:nth-child(2) {
+                height: 20px;
+                width: 80px;
+                button {
+                  @include center;
+                  flex-direction: row;
+                  margin-top: 50px;
+                  cursor: pointer;
+                  height: 80% !important;
+                  width: 100%;
+                  display: flex;
+                  align-items: center;
+                  font-size: 12px;
+                  font-weight: 500;
+                  box-sizing: border-box;
+                  padding: 20px;
+                  text-transform: capitalize;
+                  @media screen and (max-width: $medium) and (min-width: $small) {
+                    margin-left: 10px;
+                    margin-top: 0px;
+                    padding: 0px;
+                  }
+
+                  img {
+                    width: 20px;
+                    height: 20px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .billing {
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 4%;
+    height: 450px;
+    width: 250px;
+    font-size: 12px;
+    padding-left: 20px;
+    border-radius: 10px;
+    background-color: white;
+
+    @media screen and (max-width: $medium) and (min-width: $small) {
+      width: 80%;
+      margin-left: 0;
+    }
+
+    h2 {
+      height: 20px;
+      margin: 20px 0px;
+    }
+    .promocode {
+      height: 28px;
+      width: 90%;
+      padding: 5px;
+      margin: 10px 0px;
+      display: flex;
+      border: solid 2px whitesmoke;
+      button {
+        text-transform: none !important;
+        height: 100% !important;
+      }
+      input {
+        width: 80%;
+        border: none;
+        outline: none;
+        padding: 0;
+        height: 100%;
+        &:focus {
+          border: none;
+          outline: none;
+        }
+      }
+    }
+    hr {
+      @include hrstyle;
+      border-width: 1px;
+      margin: 15px 0px;
+    }
+    .subtotal {
+      height: 150px;
+      div {
+        margin: 10px 0px;
+        display: flex;
+        justify-content: space-between;
+        span {
+          &:nth-child(2) {
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+
+    .total {
+      height: 40px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      span {
+        &:nth-child(2) {
+          margin-right: 20px;
+        }
+      }
+    }
+
+    .cart-btn {
+      height: 100px;
+      width: 100%;
+      @include center;
+    }
+    .cancel-billing {
+      height: 40px;
+      width: 180px;
+      color: blue;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}

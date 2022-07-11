@@ -1,0 +1,112 @@
+$small: 300px;
+$medium: 900px;
+@mixin center {
+  display: flex;
+  flex-direfction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@font-face {
+  font-family: Bree;
+  src: url("../fonts/BreeSerif-Regular.ttf");
+}
+@font-face {
+  font-family: Poppins;
+  src: url("../fonts/Poppins-Medium.ttf");
+}
+* {
+  // outline: solid red;
+  padding: 0px;
+  margin: 0px;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  background-color: #f7f7f7;
+
+  font-family: Poppins, Verdana, Geneva, Tahoma, sans-serif;
+
+  @media screen and (max-width: $medium) and (min-width: $small) {
+    height: max-content;
+  }
+  nav {
+    height: 10vh;
+    border-radius: 0px 0ps 5px 5px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 9px 0px #e4e3e3e0;
+    .navbar {
+      @include center;
+      flex-direction: row;
+      justify-content: space-between;
+      height: 100%;
+      width: 100%;
+
+      .toggle-btn {
+        @include center();
+        margin-left: 10px;
+        height: 40px;
+        width: 40px;
+        background-color: rgba(245, 245, 245, 0.648);
+        border: solid 1px rgb(199, 197, 197);
+        border-radius: 4px;
+        cursor: pointer;
+        visibility: hidden;
+
+        img {
+          visibility: inherit;
+          height: 20px;
+          width: 20px;
+        }
+        @media screen and (max-width: 700px) and (min-width: $small) {
+          visibility: visible;
+        }
+      }
+
+      .logo {
+        @include center;
+        flex-direction: row;
+        justify-content: flex-start;
+        height: 100%;
+        width: 150px;
+        img {
+          margin: 0px 10px;
+          height: 22px;
+          width: 22px;
+          border-radius: 50%;
+        }
+      }
+
+      .cart-ico {
+        @include center;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin-right: 1%;
+        cursor: pointer;
+        &:hover {
+          background-color: whitesmoke;
+        }
+        .cart-count {
+          @include center;
+          font-size: 12px;
+          background-color: yellow;
+          position: absolute;
+          top: 5px;
+          right: 7px;
+          border-radius: 50%;
+          height: 20px;
+          width: 20px;
+        }
+        a {
+          @include center;
+          img {
+            height: 30px;
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+}
